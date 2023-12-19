@@ -6,7 +6,7 @@ const output = document.getElementById("output"); //select output by id
 
 //end of step 1
 
-//Step 2 : Create a Variable for save operatorsbuttonsvalue 
+//Step 2 : Create a Variable for save operatorsbuttonsvalue
 
 let operatorValue = null;
 
@@ -14,7 +14,7 @@ let operatorValue = null;
 
 //Step 3 : Operatorplus
 
-//Step 3.1 : Select Operatorplus by id and save in Const 
+//Step 3.1 : Select Operatorplus by id and save in Const
 
 const operatorplus = document.getElementById("operator+");
 
@@ -26,7 +26,7 @@ operatorplus.onclick = (event) => {
 
 //Step 3.3 : Create a function for computing outputvalue if operatorvalue==="+"
 
-const Operator_plus_calculat=event=>{
+const Operator_plus_calculat = (event) => {
   if (operatorValue === "+") {
     output.value =
       firstNumber.value +
@@ -34,12 +34,12 @@ const Operator_plus_calculat=event=>{
       secondNumber.value +
       "=" +
       `${+firstNumber.value + +secondNumber.value}`;
-      firstNumber.value = null;
-      secondNumber.value = null;
-    }
+    firstNumber.value = null;
+    secondNumber.value = null;
   }
-    //end of step 3
-    
+};
+//end of step 3
+
 //Step 4 : Operatormines
 
 //Step 4.1 : Select opeatormines by id and save in const
@@ -54,18 +54,18 @@ operatormines.onclick = (event) => {
 
 //Step 4.3 : Create a function for computing outputvalue if operatorvalue==="-"
 
-const Operator_mines_calculate=event=>{
-  if(operatorValue === "-"){
-  output.value =
-    firstNumber.value +
-    "-" +
-    secondNumber.value +
-    "=" +
-    `${+firstNumber.value - +secondNumber.value}`;
-  firstNumber.value = null;
-  secondNumber.value = null;
+const Operator_mines_calculate = (event) => {
+  if (operatorValue === "-") {
+    output.value =
+      firstNumber.value +
+      "-" +
+      secondNumber.value +
+      "=" +
+      `${+firstNumber.value - +secondNumber.value}`;
+    firstNumber.value = null;
+    secondNumber.value = null;
   }
-}
+};
 
 //end of step 4
 
@@ -73,7 +73,7 @@ const Operator_mines_calculate=event=>{
 
 //Step 5.1 : Select operatormultiple by id and save in const
 
-const operatormultiple = document.getElementById("operator*"); 
+const operatormultiple = document.getElementById("operator*");
 
 //step 5.2 : Use onclick property and save operatormultiple.innertext inside operatorvalue
 
@@ -83,7 +83,7 @@ operatormultiple.onclick = (event) => {
 
 //Step 5.3 : Create function for computing outputvale if operatorvalue==="*"
 
-const Operator_multiply_calculate=event=>{
+const Operator_multiply_calculate = (event) => {
   if (operatorValue === "*") {
     output.value =
       firstNumber.value +
@@ -93,15 +93,15 @@ const Operator_multiply_calculate=event=>{
       `${+firstNumber.value * +secondNumber.value}`;
     firstNumber.value = null;
     secondNumber.value = null;
-}
-}
+  }
+};
 //end of step 5
 
-//Step 6 : Operatordivide 
+//Step 6 : Operatordivide
 
 //Step 6.1 : Select operatordividebutton by id and save in const
 
-const operatordivide = document.getElementById("operator/"); 
+const operatordivide = document.getElementById("operator/");
 
 //Step 6.2 : Use onclick property and save operatordivide.innertext inside operatorvalue
 
@@ -111,7 +111,7 @@ operatordivide.onclick = (event) => {
 
 //Step 6.3 : Create function for computing outputvalue if operatorvalue==="/"
 
-const Operator_divide_calculate=event=>{
+const Operator_divide_calculate = (event) => {
   if (operatorValue === "/") {
     output.value =
       firstNumber.value +
@@ -122,7 +122,7 @@ const Operator_divide_calculate=event=>{
     firstNumber.value = null;
     secondNumber.value = null;
   }
-}
+};
 
 //end of step 6
 
@@ -135,11 +135,11 @@ const equal = document.getElementById("equal");
 //Step 7.2 : Use onclick property and call all operators functions
 
 equal.onclick = (event) => {
-  Operator_plus_calculat
-  Operator_mines_calculate
-  Operator_multiply_calculate
-  Operator_divide_calculate
-  if(operatorValue===null){
+  Operator_plus_calculat;
+  Operator_mines_calculate;
+  Operator_multiply_calculate;
+  Operator_divide_calculate;
+  if (operatorValue === null) {
     output.value = "please enter two number and select your operator";
   }
 };
@@ -161,8 +161,3 @@ reset.onclick = (event) => {
 };
 
 //end of step 8
-
-
-
-
-
