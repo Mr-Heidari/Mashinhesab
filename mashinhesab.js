@@ -27,7 +27,6 @@ operatorplus.onclick = (event) => {
 //Step 3.3 : Create a function for computing outputvalue if operatorvalue==="+"
 
 const Operator_plus_calculat = (event) => {
-  console.log("hello")
   if (operatorValue === "+") {
     output.value =
       firstNumber.value +
