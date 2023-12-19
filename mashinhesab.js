@@ -1,69 +1,69 @@
-//step 1 : select inputs and output
+//step 1 : select inputs and OUTPUT
 
-const firstNumber = document.getElementById("firstnumber"); //select firstnumber input by id
-const secondNumber = document.getElementById("secondnumber"); //select secondnumber input by id
-const output = document.getElementById("output"); //select output by id
+const FIRST_NUMBER = document.getElementById("FIRST_NUMBER"); //select FIRST_NUMBER input by id
+const SECOND_NUMBER = document.getElementById("SECOND_NUMBER"); //select SECOND_NUMBER input by id
+const OUTPUT = document.getElementById("OUTPUT"); //select OUTPUT by id
 
 //end of step 1
 
 //Step 2 : Create a Variable for save operatorsbuttonsvalue
 
-let operatorValue = null;
+let OperatorValue = null;
 
 //end of step 2
 
-//Step 3 : Operatorplus
+//Step 3 : OPERATOR_PLUS
 
-//Step 3.1 : Select Operatorplus by id and save in Const
+//Step 3.1 : Select OPERATOR_PLUS by id and save in Const
 
-const operatorplus = document.getElementById("operator+");
+const OPERATOR_PLUS = document.getElementById("operator+");
 
-//Step 3.2 : Use onclick property and save Operatorplus.innertext inside operatorvalue
+//Step 3.2 : Use onclick property and save OPERATOR_PLUS.innertext inside OperatorValue
 
-operatorplus.onclick = (event) => {
-  operatorValue = operatorplus.innerText;
+OPERATOR_PLUS.onclick = (event) => {
+  OperatorValue = OPERATOR_PLUS.innerText;
 };
 
-//Step 3.3 : Create a function for computing outputvalue if operatorvalue==="+"
+//Step 3.3 : Create a function for computing OUTPUTvalue if OperatorValue==="+"
 
-const Operator_plus_calculat = (event) => {
-  if (operatorValue === "+") {
-    output.value =
-      firstNumber.value +
+const OPERATOR_PLUS_CALCULATE = (event) => {
+  if (OperatorValue === "+") {
+    OUTPUT.value =
+      FIRST_NUMBER.value +
       "+" +
-      secondNumber.value +
+      SECOND_NUMBER.value +
       "=" +
-      `${+firstNumber.value + +secondNumber.value}`;
-    firstNumber.value = null;
-    secondNumber.value = null;
+      `${+FIRST_NUMBER.value + +SECOND_NUMBER.value}`;
+    FIRST_NUMBER.value = null;
+    SECOND_NUMBER.value = null;
   }
 };
 //end of step 3
 
-//Step 4 : Operatormines
+//Step 4 : OPERATOR_MINES
 
 //Step 4.1 : Select opeatormines by id and save in const
 
-const operatormines = document.getElementById("operator-"); //select - operator by id
+const OPERATOR_MINES = document.getElementById("operator-"); //select - operator by id
 
-//Step 4.2 : Use onclick property ands save operatormines.innertext inside operatorvalue
+//Step 4.2 : Use onclick property ands save OPERATOR_MINES.innertext inside OperatorValue
 
-operatormines.onclick = (event) => {
-  operatorValue = operatormines.innerText;
+OPERATOR_MINES.onclick = (event) => {
+  OperatorValue = OPERATOR_MINES.innerText;
 };
 
-//Step 4.3 : Create a function for computing outputvalue if operatorvalue==="-"
+//Step 4.3 : Create a function for computing OUTPUTvalue if OperatorValue==="-"
 
-const Operator_mines_calculate = (event) => {
-  if (operatorValue === "-") {
-    output.value =
-      firstNumber.value +
+const OPERATOR_MINES_CALCULATE = (event) => {
+  if (OperatorValue === "-") {
+    OUTPUT.value =
+      FIRST_NUMBER.value +
       "-" +
-      secondNumber.value +
+      SECOND_NUMBER.value +
       "=" +
-      `${+firstNumber.value - +secondNumber.value}`;
-    firstNumber.value = null;
-    secondNumber.value = null;
+      `${+FIRST_NUMBER.value - +SECOND_NUMBER.value}`;
+    FIRST_NUMBER.value = null;
+    SECOND_NUMBER.value = null;
   }
 };
 
@@ -71,56 +71,56 @@ const Operator_mines_calculate = (event) => {
 
 //Step 5 : Operatormultiply
 
-//Step 5.1 : Select operatormultiple by id and save in const
+//Step 5.1 : Select OPERATOR_MULTIPLY by id and save in const
 
-const operatormultiple = document.getElementById("operator*");
+const OPERATOR_MULTIPLY = document.getElementById("operator*");
 
-//step 5.2 : Use onclick property and save operatormultiple.innertext inside operatorvalue
+//step 5.2 : Use onclick property and save OPERATOR_MULTIPLY.innertext inside OperatorValue
 
-operatormultiple.onclick = (event) => {
-  operatorValue = operatormultiple.innerText;
+OPERATOR_MULTIPLY.onclick = (event) => {
+  OperatorValue = OPERATOR_MULTIPLY.innerText;
 };
 
-//Step 5.3 : Create function for computing outputvale if operatorvalue==="*"
+//Step 5.3 : Create function for computing OUTPUTvale if OperatorValue==="*"
 
-const Operator_multiply_calculate = (event) => {
-  if (operatorValue === "*") {
-    output.value =
-      firstNumber.value +
+const OPERATOR_MULTIPLY_CALCULATE = (event) => {
+  if (OperatorValue === "*") {
+    OUTPUT.value =
+      FIRST_NUMBER.value +
       "*" +
-      secondNumber.value +
+      SECOND_NUMBER.value +
       "=" +
-      `${+firstNumber.value * +secondNumber.value}`;
-    firstNumber.value = null;
-    secondNumber.value = null;
+      `${+FIRST_NUMBER.value * +SECOND_NUMBER.value}`;
+    FIRST_NUMBER.value = null;
+    SECOND_NUMBER.value = null;
   }
 };
 //end of step 5
 
-//Step 6 : Operatordivide
+//Step 6 : OPERATOR_DIVIDE
 
-//Step 6.1 : Select operatordividebutton by id and save in const
+//Step 6.1 : Select OPERATOR_DIVIDEbutton by id and save in const
 
-const operatordivide = document.getElementById("operator/");
+const OPERATOR_DIVIDE = document.getElementById("operator/");
 
-//Step 6.2 : Use onclick property and save operatordivide.innertext inside operatorvalue
+//Step 6.2 : Use onclick property and save OPERATOR_DIVIDE.innertext inside OperatorValue
 
-operatordivide.onclick = (event) => {
-  operatorValue = operatordivide.innerText;
+OPERATOR_DIVIDE.onclick = (event) => {
+  OperatorValue = OPERATOR_DIVIDE.innerText;
 };
 
-//Step 6.3 : Create function for computing outputvalue if operatorvalue==="/"
+//Step 6.3 : Create function for computing OUTPUTvalue if OperatorValue==="/"
 
-const Operator_divide_calculate = (event) => {
-  if (operatorValue === "/") {
-    output.value =
-      firstNumber.value +
+const OPERATOR_DIVIDE_CALCULATE = (event) => {
+  if (OperatorValue === "/") {
+    OUTPUT.value =
+      FIRST_NUMBER.value +
       "/" +
-      secondNumber.value +
+      SECOND_NUMBER.value +
       "=" +
-      `${+firstNumber.value / +secondNumber.value}`;
-    firstNumber.value = null;
-    secondNumber.value = null;
+      `${+FIRST_NUMBER.value / +SECOND_NUMBER.value}`;
+    FIRST_NUMBER.value = null;
+    SECOND_NUMBER.value = null;
   }
 };
 
@@ -130,17 +130,17 @@ const Operator_divide_calculate = (event) => {
 
 //Step 7.1 : Select operatoqualbutton by id and save in const
 
-const equal = document.getElementById("equal");
+const EQUAL = document.getElementById("equal");
 
 //Step 7.2 : Use onclick property and call all operators functions
 
-equal.onclick = (event) => {
-  Operator_plus_calculat();
-  Operator_mines_calculate();
-  Operator_multiply_calculate();
-  Operator_divide_calculate();
-  if (operatorValue === null) {
-    output.value = "please enter two number and select your operator";
+EQUAL.onclick = (event) => {
+  OPERATOR_PLUS_CALCULATE();
+  OPERATOR_MINES_CALCULATE();
+  OPERATOR_MULTIPLY_CALCULATE();
+  OPERATOR_DIVIDE_CALCULATE();
+  if (OperatorValue === null) {
+    OUTPUT.value = "please enter two number and select your operator";
   }
 };
 
@@ -150,14 +150,14 @@ equal.onclick = (event) => {
 
 //Step 8.1 : Select Resetbutton by id and save in const
 
-const reset = document.getElementById("reset");
+const RESET = document.getElementById("reset");
 
-//Step 8.2 : Use onclick property and Set inputs and outputs value to null
+//Step 8.2 : Use onclick property and Set inputs and OUTPUTs value to null
 
-reset.onclick = (event) => {
-  firstNumber.value = null;
-  secondNumber.value = null;
-  output.value = null;
+RESET.onclick = (event) => {
+  FIRST_NUMBER.value = null;
+  SECOND_NUMBER.value = null;
+  OUTPUT.value = null;
 };
 
 //end of step 8
