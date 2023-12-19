@@ -6,7 +6,7 @@ const OUTPUT = document.getElementById("OUTPUT"); //select OUTPUT by id
 
 //end of step 1
 
-//Step 2 : we want to save all OperatorButtons text
+//Step 2 : we want to save all OperatorButtons text 
 
 let OperatorValue = null;
 
