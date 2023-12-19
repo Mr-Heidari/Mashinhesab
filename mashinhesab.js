@@ -27,6 +27,7 @@ operatorplus.onclick = (event) => {
 //Step 3.3 : Create a function for computing outputvalue if operatorvalue==="+"
 
 const Operator_plus_calculat = (event) => {
+  console.log("hello")
   if (operatorValue === "+") {
     output.value =
       firstNumber.value +
@@ -135,10 +136,11 @@ const equal = document.getElementById("equal");
 //Step 7.2 : Use onclick property and call all operators functions
 
 equal.onclick = (event) => {
-  Operator_plus_calculat;
-  Operator_mines_calculate;
-  Operator_multiply_calculate;
-  Operator_divide_calculate;
+  
+  Operator_plus_calculat();
+  Operator_mines_calculate();
+  Operator_multiply_calculate();
+  Operator_divide_calculate();
   if (operatorValue === null) {
     output.value = "please enter two number and select your operator";
   }
