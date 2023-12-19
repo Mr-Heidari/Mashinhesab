@@ -136,7 +136,6 @@ const equal = document.getElementById("equal");
 //Step 7.2 : Use onclick property and call all operators functions
 
 equal.onclick = (event) => {
-  
   Operator_plus_calculat();
   Operator_mines_calculate();
   Operator_multiply_calculate();
