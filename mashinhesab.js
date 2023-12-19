@@ -1,4 +1,4 @@
-//step 1 : select inputs and OUTPUT
+//step 1 : We get our firstnumber and second number and we want control our output value
 
 const FIRST_NUMBER = document.getElementById("FIRST_NUMBER"); //select FIRST_NUMBER input by id
 const SECOND_NUMBER = document.getElementById("SECOND_NUMBER"); //select SECOND_NUMBER input by id
@@ -6,7 +6,7 @@ const OUTPUT = document.getElementById("OUTPUT"); //select OUTPUT by id
 
 //end of step 1
 
-//Step 2 : Create a Variable for save operatorsbuttonsvalue
+//Step 2 : we want to save all OperatorButtons text
 
 let OperatorValue = null;
 
@@ -14,17 +14,17 @@ let OperatorValue = null;
 
 //Step 3 : OPERATOR_PLUS
 
-//Step 3.1 : Select OPERATOR_PLUS by id and save in Const
+//Step 3.1 : we want save buttonplus.text when get clicked
 
 const OPERATOR_PLUS = document.getElementById("operator+");
 
-//Step 3.2 : Use onclick property and save OPERATOR_PLUS.innertext inside OperatorValue
+//Step 3.2 : save buttonplus text
 
 OPERATOR_PLUS.onclick = (event) => {
   OperatorValue = OPERATOR_PLUS.innerText;
 };
 
-//Step 3.3 : Create a function for computing OUTPUTvalue if OperatorValue==="+"
+//Step 3.3 : plus funtion for computing output
 
 const OPERATOR_PLUS_CALCULATE = (event) => {
   if (OperatorValue === "+") {
@@ -42,17 +42,17 @@ const OPERATOR_PLUS_CALCULATE = (event) => {
 
 //Step 4 : OPERATOR_MINES
 
-//Step 4.1 : Select opeatormines by id and save in const
+//Step 4.1 : we want save buttonmines.text when get clicked
 
 const OPERATOR_MINES = document.getElementById("operator-"); //select - operator by id
 
-//Step 4.2 : Use onclick property ands save OPERATOR_MINES.innertext inside OperatorValue
+//Step 4.2 : save buttonmines text
 
 OPERATOR_MINES.onclick = (event) => {
   OperatorValue = OPERATOR_MINES.innerText;
 };
 
-//Step 4.3 : Create a function for computing OUTPUTvalue if OperatorValue==="-"
+//Step 4.3 : mines function for computing output 
 
 const OPERATOR_MINES_CALCULATE = (event) => {
   if (OperatorValue === "-") {
@@ -71,17 +71,17 @@ const OPERATOR_MINES_CALCULATE = (event) => {
 
 //Step 5 : Operatormultiply
 
-//Step 5.1 : Select OPERATOR_MULTIPLY by id and save in const
+//Step 5.1 :  we want save buttonmultiply.text when get clicked
 
 const OPERATOR_MULTIPLY = document.getElementById("operator*");
 
-//step 5.2 : Use onclick property and save OPERATOR_MULTIPLY.innertext inside OperatorValue
+//step 5.2 : save buttonmultiply text
 
 OPERATOR_MULTIPLY.onclick = (event) => {
   OperatorValue = OPERATOR_MULTIPLY.innerText;
 };
 
-//Step 5.3 : Create function for computing OUTPUTvale if OperatorValue==="*"
+//Step 5.3 : Multiply function for computing output
 
 const OPERATOR_MULTIPLY_CALCULATE = (event) => {
   if (OperatorValue === "*") {
@@ -99,17 +99,17 @@ const OPERATOR_MULTIPLY_CALCULATE = (event) => {
 
 //Step 6 : OPERATOR_DIVIDE
 
-//Step 6.1 : Select OPERATOR_DIVIDEbutton by id and save in const
+//Step 6.1 : we want save buttondivide.text when get clicked
 
 const OPERATOR_DIVIDE = document.getElementById("operator/");
 
-//Step 6.2 : Use onclick property and save OPERATOR_DIVIDE.innertext inside OperatorValue
+//Step 6.2 : save buttondivide text
 
 OPERATOR_DIVIDE.onclick = (event) => {
   OperatorValue = OPERATOR_DIVIDE.innerText;
 };
 
-//Step 6.3 : Create function for computing OUTPUTvalue if OperatorValue==="/"
+//Step 6.3 : Divide function for computing output
 
 const OPERATOR_DIVIDE_CALCULATE = (event) => {
   if (OperatorValue === "/") {
@@ -126,13 +126,13 @@ const OPERATOR_DIVIDE_CALCULATE = (event) => {
 
 //end of step 6
 
-//Step 7 : Operatorqual
+//Step 7 : Operatorequal
 
-//Step 7.1 : Select operatoqualbutton by id and save in const
+//Step 7.1 : we want run all of our operator functions we made when  button equal get clicked
 
 const EQUAL = document.getElementById("equal");
 
-//Step 7.2 : Use onclick property and call all operators functions
+//Step 7.2 : call all of out operator functions
 
 EQUAL.onclick = (event) => {
   OPERATOR_PLUS_CALCULATE();
@@ -148,11 +148,11 @@ EQUAL.onclick = (event) => {
 
 //Step 8 : Reset
 
-//Step 8.1 : Select Resetbutton by id and save in const
+//Step 8.1 : we need clear all of our input and output value to null when reset get clicked
 
 const RESET = document.getElementById("reset");
 
-//Step 8.2 : Use onclick property and Set inputs and OUTPUTs value to null
+//Step 8.2 : reset button change all of our input and output value to null
 
 RESET.onclick = (event) => {
   FIRST_NUMBER.value = null;
