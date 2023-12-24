@@ -1,31 +1,33 @@
 //step 1 : We get our firstnumber and second number and we want control our output value
 
+//#region init variables
 const FIRST_NUMBER = document.getElementById("FIRST_NUMBER"); //select FIRST_NUMBER input by id
 const SECOND_NUMBER = document.getElementById("SECOND_NUMBER"); //select SECOND_NUMBER input by id
 const OUTPUT = document.getElementById("OUTPUT"); //select OUTPUT by id
 
+const VERSION = "1.3"
 //end of step 1
 
 //Step 2 : we want to save all OperatorButtons text 
 
 let OperatorValue = null;
+let firstNumber
+let evenNumbers
+let oddNumbers
 
 //end of step 2
+//#endregion
 
+
+//#region Operation
 //Step 3 : OPERATOR_PLUS
-
 //Step 3.1 : we want save buttonplus.text when get clicked
-
 const OPERATOR_PLUS = document.getElementById("operator+");
-
 //Step 3.2 : save buttonplus text
-
 OPERATOR_PLUS.onclick = (event) => {
   OperatorValue = OPERATOR_PLUS.innerText;
 };
-
 //Step 3.3 : plus funtion for computing output
-
 const OPERATOR_PLUS_CALCULATE = (event) => {
   if (OperatorValue === "+") {
     OUTPUT.value =
@@ -161,3 +163,4 @@ RESET.onclick = (event) => {
 };
 
 //end of step 8
+//#endregion
