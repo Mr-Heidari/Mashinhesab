@@ -1,3 +1,4 @@
+//Change our buttons style on historymodal Div
 document.addEventListener(
   "keydown",
   (event) => {
@@ -18,6 +19,7 @@ document.addEventListener(
   },
   true
 );
+//Reset our buttons to default
 document.addEventListener(
   "keyup",
   (event) => {

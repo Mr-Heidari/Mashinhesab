@@ -1,16 +1,30 @@
+//In this file we want control our display with numbers and our operators do some math
+
+//At first select some elements 
 const display = document.getElementById("display");
 const prevDisplay = document.getElementById("prevDisplay");
 const selectedOperator = document.getElementById("selectedOperator");
 const delBtn = document.getElementById("del");
+
+//then we need set our valid inputs 
 const EnterInputs = "Enter";
 const numbers = "1234567890.";
 const operations = "+-*/p";
+
+//after that need some flag for our displays value
 let isInt = false;
 let displayHasValue = false;
 let prevDisplayHasValue = false;
-let displayValue = display.value;
+
+//just a temp variable to move our valid inputs
 let y = 0;
+
+//this is our operators containers all operator are inside this variable
 const operators = {
+/*in here we have 6 operator do some math and change our flags for better control our display
+ and no bugs
+at least change our displaysvalue when computation ended 
+*/
   "+": function plus() {
     prevDisplayHasValue = true;
     inputs = "+";
@@ -102,6 +116,8 @@ const operators = {
     operators[`${selectedOperator.innerText}`]();}
   },
 };
+
+//we have 2 type of selecting our valid inputs this is one of them with mouse click
 const wichButtonsClicked = {
   one: (document.getElementById("one").onclick = (event) => {
     y = document.getElementById("one").innerText;
@@ -161,7 +177,10 @@ const wichButtonsClicked = {
     y = "s";
   }),
 };
+
+//for better control our displays we need remove some char when we did wrong
 const removeCharOnDisplay = {
+  //we can acces this property with 2 type of selection 1-click 2-keypress
   clicked: (delBtn.onclick = (event) => {
     let temp = "";
     temp = String(display.value);
@@ -187,6 +206,8 @@ const removeCharOnDisplay = {
     }
   }),
 };
+
+//this is filter or a rule for our displays to get valid inputs and set them on theirself 
 const inputsValidation = (inputs) => {
   for (let i = 0; i < 16; i++) {
     if ((inputs === "a" || inputs === "s") && isInt === false) {
@@ -195,12 +216,10 @@ const inputsValidation = (inputs) => {
       } else if (inputs === "s") {
         display.value += "-";
       }
-      displayValue = display.value;
       isInt = true;
       y = "notvalid";
     } else if (inputs === numbers[i]) {
       display.value += inputs;
-      displayValue = display.value;
       displayHasValue = true;
       y = "notvalid";
       isInt = true;
@@ -211,6 +230,10 @@ const inputsValidation = (inputs) => {
     }
   }
 };
+
+/*atlast we should acces to our display when buttons clicked our press 
+this container will enable when modal is not actived
+*/
 const displayControls = {
   whenValidBtnCliked: (document.onclick = (event) => {
     let inputs = y;
