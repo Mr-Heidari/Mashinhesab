@@ -4,17 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="Mashinhesab.css" />
+    <link rel="stylesheet" href="css/Mashinhesab.css" />
   </head>
   <body>
-    <div id="calculator"></div>
+    <div id="modalHistory">
+      <div id="historyShow">
+        <input id="historyShowInput" type="text" />
+        <button id="up"></button>
+        <button id="down"></button>
+        <button id="selectHistoryValue">Select</button>
+        <button id="exitModal"></button>
+      </div>
+    </div>
     <div id="buttons">
       <div id="displayInputs">
         <input type=" text" id="prevDisplay" />
         <span id="selectedOperator"></span>
         <input type="text" id="display" />
       </div>
-      <button class="buttons" id="one" >1</button>
+      <button id="history"></button>
+      <button id="int">+INT</button>
+      <button id="-int">-INT</button>
+      <button id="del">del</button>
+      <button id="C">c</button>
+      <button class="buttons" id="one">1</button>
       <button class="buttons" id="two">2</button>
       <button class="buttons" id="three">3</button>
       <button class="buttons" id="four">4</button>
@@ -33,6 +46,8 @@
       <button class="buttons" id="operatorEqual">=</button>
     </div>
   </body>
-  <script src="CalculatorStyle.js"></script>
-  <script src="CalculatorOperation.js"></script>
+  <script src="Js/historyControl.js"></script>
+  <script src="Js/historyStyle.js"></script>
+  <script src="Js/CalculatorStyle.js"></script>
+  <script src="Js/CalculatorOperation.js"></script>
 </html>

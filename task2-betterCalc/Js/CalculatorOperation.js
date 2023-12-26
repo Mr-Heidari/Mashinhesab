@@ -1,9 +1,11 @@
 const display = document.getElementById("display");
 const prevDisplay = document.getElementById("prevDisplay");
+const selectedOperator = document.getElementById("selectedOperator");
+const delBtn = document.getElementById("del");
 const EnterInputs = "Enter";
 const numbers = "1234567890.";
 const operations = "+-*/p";
-const selectedOperator = document.getElementById("selectedOperator");
+let isInt = false;
 let displayHasValue = false;
 let prevDisplayHasValue = false;
 let displayValue = display.value;
@@ -13,32 +15,45 @@ const operators = {
     prevDisplayHasValue = true;
     inputs = "+";
     selectedOperator.innerText = inputs;
-    prevDisplay.value = Number(prevDisplay.value) + Number(displayValue);
-    display.value = null;
-    displayHasValue = false;
+    if (displayHasValue === true) {
+      histroySave.saveOperation();
+      prevDisplay.value = Number(prevDisplay.value) + Number(display.value);
+      histroySave.saveValue();
+      display.value = null;
+      displayHasValue = false;
+      isInt = false;
+    }
   },
   "-": function mines() {
     prevDisplayHasValue = true;
     inputs = "-";
     selectedOperator.innerText = inputs;
-    prevDisplay.value = Number(prevDisplay.value) - Number(displayValue);
-    display.value = null;
-    displayHasValue = false;
+    if (displayHasValue === true) {
+      histroySave.saveOperation();
+      prevDisplay.value = Number(prevDisplay.value) - Number(display.value);
+      histroySave.saveValue();
+      display.value = null;
+      displayHasValue = false;
+      isInt = false;
+    }
   },
   "*": function multiply() {
     inputs = "*";
     selectedOperator.innerText = inputs;
-    console.log(displayHasValue);
     if (displayHasValue === true && prevDisplayHasValue === true) {
-      console.log(display.value);
-      prevDisplay.value = Number(prevDisplay.value) * Number(displayValue);
+      histroySave.saveOperation();
+      prevDisplay.value = Number(prevDisplay.value) * Number(display.value);
+      histroySave.saveValue();
       display.value = null;
+      isInt = false;
       displayHasValue = false;
     } else if (displayHasValue === true) {
-      console.log("fak");
       prevDisplayHasValue = true;
+      histroySave.saveOperation();
       prevDisplay.value = display.value;
+      histroySave.saveValue();
       display.value = null;
+      isInt = false;
       displayHasValue = false;
     }
   },
@@ -46,34 +61,45 @@ const operators = {
     inputs = "/";
     selectedOperator.innerText = inputs;
     if (displayHasValue === true && prevDisplayHasValue === true) {
-      prevDisplay.value = Number(prevDisplay.value) / Number(displayValue);
+      histroySave.saveOperation();
+      prevDisplay.value = Number(prevDisplay.value) / Number(display.value);
+      histroySave.saveValue();
       display.value = null;
+      isInt = false;
       displayHasValue = false;
     } else if (displayHasValue === true) {
-      console.log("fak");
       prevDisplayHasValue = true;
+      histroySave.saveOperation();
       prevDisplay.value = display.value;
+      histroySave.saveValue();
       display.value = null;
+      isInt = false;
       displayHasValue = false;
     }
   },
   p: function pow() {
     inputs = "p";
     selectedOperator.innerText = inputs;
-    console.log(displayHasValue);
     if (displayHasValue === true && prevDisplayHasValue === true) {
-      prevDisplay.value = Number(prevDisplay.value) ** Number(displayValue);
+      histroySave.saveOperation();
+      prevDisplay.value = Number(prevDisplay.value) ** Number(display.value);
+      histroySave.saveValue();
       display.value = null;
+      isInt = false;
       displayHasValue = false;
     } else if (displayHasValue === true) {
       prevDisplayHasValue = true;
+      histroySave.saveOperation();
       prevDisplay.value = display.value;
+      histroySave.saveValue();
       display.value = null;
+      isInt = false;
       displayHasValue = false;
     }
   },
   Enter: function equal() {
-    operators[`${selectedOperator.innerText}`]();
+    if(selectedOperator.innerText!==""){
+    operators[`${selectedOperator.innerText}`]();}
   },
 };
 const wichButtonsClicked = {
@@ -113,16 +139,14 @@ const wichButtonsClicked = {
   mines: (document.getElementById("operatorMines").onclick = (event) => {
     y = document.getElementById("operatorMines").innerText;
   }),
-  multiply: (document.getElementById("operatorMultiply").onclick = (
-    event
-  ) => {
+  multiply: (document.getElementById("operatorMultiply").onclick = (event) => {
     y = document.getElementById("operatorMultiply").innerText;
   }),
   divide: (document.getElementById("operatorDivide").onclick = (event) => {
     y = document.getElementById("operatorDivide").innerText;
   }),
   pow: (document.getElementById("operatorPow").onclick = (event) => {
-    y ="p";
+    y = "p";
   }),
   point: (document.getElementById("point").onclick = (event) => {
     y = document.getElementById("point").innerText;
@@ -130,28 +154,72 @@ const wichButtonsClicked = {
   equal: (document.getElementById("operatorEqual").onclick = (event) => {
     y = "Enter";
   }),
+  int: (document.getElementById("int").onclick = (event) => {
+    y = "a";
+  }),
+  int: (document.getElementById("-int").onclick = (event) => {
+    y = "s";
+  }),
 };
-const inputsValidation=(inputs)=>{
+const removeCharOnDisplay = {
+  clicked: (delBtn.onclick = (event) => {
+    let temp = "";
+    temp = String(display.value);
+    if (temp !== "") {
+      temp = temp.slice(0, -1);
+    }
+    if(temp==="") {
+      isInt=false;
+    }
+    display.value = temp;
+  }),
+  keyDown: document.addEventListener("keydown", (event) => {
+    if (event.key === "Delete") {
+      let temp = "";
+      temp = String(display.value);
+      if (temp !=="") {
+        temp = temp.slice(0, -1);
+      }
+      if(temp===""){
+        isInt=false
+      }
+      display.value = temp;
+    }
+  }),
+};
+const inputsValidation = (inputs) => {
   for (let i = 0; i < 16; i++) {
-    if (inputs === numbers[i]) {
+    if ((inputs === "a" || inputs === "s") && isInt === false) {
+      if (inputs === "a") {
+        display.value += "+";
+      } else if (inputs === "s") {
+        display.value += "-";
+      }
+      displayValue = display.value;
+      isInt = true;
+      y = "notvalid";
+    } else if (inputs === numbers[i]) {
       display.value += inputs;
       displayValue = display.value;
       displayHasValue = true;
-      console.log(displayHasValue);
+      y = "notvalid";
+      isInt = true;
     } else if (inputs === operations[i] || inputs === EnterInputs) {
       operators[`${inputs}`]();
+      y = "notvalid";
       break;
     }
   }
-}
-const displayControls = (event) => {
-  document.onclick = (event) => {
+};
+const displayControls = {
+  whenValidBtnCliked: (document.onclick = (event) => {
     let inputs = y;
     inputsValidation(inputs);
-  };
-  document.onkeydown = (event) => {
+  }),
+  whenValidBtnKeydown: (document.addEventListener("keydown",event=>{
     let inputs = event.key;
-    inputsValidation(inputs);
-  };
+    if (modalIsEnable === false) {
+      inputsValidation(inputs);
+    }
+  }))
 };
-displayControls();

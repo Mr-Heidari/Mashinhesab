@@ -2,6 +2,7 @@ document.addEventListener(
   "keydown",
   (event) => {
     var name = event.key;
+    if(modalIsEnable===false){
     if (name === "1") {
       document.getElementById("one").classList.add("active");
     }
@@ -53,6 +54,19 @@ document.addEventListener(
     else if(name==="Enter"){
         document.getElementById("operatorEqual").classList.add("equalactive");
     }    
+    else if(name==="h"){
+        document.getElementById("history").classList.add("historyactive");
+    }
+    else if(name==="Delete"){
+        document.getElementById("del").classList.add("delactive");
+    }   
+    else if(name==="a"){
+        document.getElementById("int").classList.add("active");
+    } 
+    else if(name==="s"){
+        document.getElementById("-int").classList.add("active");
+    }
+}
   },
   true
 );
@@ -111,6 +125,24 @@ document.addEventListener(
       else if(name==="Enter"){
           document.getElementById("operatorEqual").classList.remove("equalactive");
       }    
+      else if(name==="h"){
+        document.getElementById("history").classList.remove("historyactive");
+    }
+    else if(name==="ArrowUp"){
+        document.getElementById("up").classList.remove("updownactive");
+    }
+    else if(name==="ArrowDown"){
+        document.getElementById("down").classList.remove("updownactive");
+    }
+    else if(name==="Delete"){
+        document.getElementById("del").classList.remove("delactive");
+    }   
+    else if(name==="a"){
+        document.getElementById("int").classList.remove("active");
+    } 
+    else if(name==="s"){
+        document.getElementById("-int").classList.remove("active");
+    } 
   },
   true
 );
